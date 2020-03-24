@@ -13,9 +13,9 @@ router.post('/register', (req, res) => {
 
   userInfo.password = hash;
 
-  Users.add(user)
-  .then(saved => {
-    res.status(201).json(saved);
+  Users.add(userInfo)
+  .then(user => {
+    res.json(user);
   })
   .catch(error => {
     res.status(500).json(error);
@@ -27,3 +27,5 @@ router.post('/login', (req, res) => {
 
   Users.find()
 })
+
+module.exports = router;
