@@ -32,13 +32,22 @@ router.post('/login', (req, res) => {
         id: user.id,
         username: user.username
       };
-      
+
       res.status(200).json({"hello": user.username})
     } else {
       res.status(401).json({"message": "invalid credentials"})
     }
   })
   .catch(error => res.status(500).json({"error message":"there was an error finding that user"}))
+})
+
+router.get('/logout', (req, res) => {
+  if(req.session) {
+    req.session.destroy();
+    res.status(200).json({"message":"successfully logged out"});
+  } else {
+    res.status(200).json({"message":"you are already logged out"})
+  }
 })
 
 module.exports = router;

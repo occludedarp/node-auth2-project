@@ -3,6 +3,6 @@ module.exports = (req, res, next) => {
     console.log("session", req.session)
     next();
   } else {
-    res.status(401).json({ "put some": "respec on my name" });
+    res.status(401).json({ "message": "put some respec on my name" });
   }
 };
