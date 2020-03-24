@@ -23,8 +23,6 @@ server.use(helmet());
 server.use(express.json());
 server.use(cors());
 server.use(session(sessionConfig));
-//middleware here
-// server.use(securedAccess);
 
 server.use('/api', apiRouter)
 
